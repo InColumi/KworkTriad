@@ -1,78 +1,170 @@
 #include <iostream>
 #include <string>
 
+/// <summary>
+/// класс Триада
+/// </summary>
 class Triad
 {
 private:
+	/// <summary>
+	/// первое число
+	/// </summary>
 	int _a;
+
+	/// <summary>
+	/// Второе число
+	/// </summary>
 	int _b;
+
+	/// <summary>
+	/// Третье число
+	/// </summary>
 	int _c;
 
 public:
+	/// <summary>
+	/// Конструктор по умолчанию
+	/// </summary>
 	Triad() : _a(0), _b(0), _c(0) {}
+
+	/// <summary>
+	/// Конструктор с параметрами
+	/// </summary>
+	/// <param name="a">перваое число</param>
+	/// <param name="b">второе число</param>
+	/// <param name="c">третьие число</param>
 	Triad(int a, int b, int c) : _a(a), _b(b), _c(c) {}
 
+	/// <summary>
+	/// Оператор сравнении Логическое И. Сравнивает два объекта типа Triad
+	/// </summary>
+	/// <param name="triad"></param>
+	/// <returns>Возвращает истину в случае если все ячейки равны</returns>
 	bool operator==(const Triad& triad)
 	{
 		return this->_a == triad._a && this->_b == triad._b && this->_c == triad._c;
 	}
 
+	/// <summary>
+	/// Оератор сравнения Логическое ИЛИ Сравнивает два объекта типа Triad
+	/// </summary>
+	/// <param name="triad"></param>
+	/// <returns>Возвращает истину в случае если хотя бы одна ячейка будет отличаться от другой/returns>
 	bool operator !=(const Triad& triad)
 	{
 		return this->_a != triad._a || this->_b != triad._b || this->_c != triad._c;
 	}
 
+	/// <summary>
+	/// Оператор сравнение больше 
+	/// </summary>
+	/// <param name="triad"></param>
+	/// <returns>Истина в случае если все ячейки первого объекта больше всех ячеек второго объекта</returns>
 	bool operator > (const Triad& triad)
 	{
 		return this->_a > triad._a && this->_b > triad._b && this->_c > triad._c;
 	}
 
+	/// <summary>
+	/// Оператор сравнения меньше
+	/// </summary>
+	/// <param name="triad"></param>
+	/// <returns>Истина в случае если все ячейки первого объекта меньше всех ячеек второго объекта</returns>
 	bool operator < (const Triad& triad)
 	{
 		return this->_a < triad._a&& this->_b < triad._b&& this->_c < triad._c;
 	}
 
+	/// <summary>
+	/// Оператор сравнения больше или равно
+	/// </summary>
+	/// <param name="triad"></param>
+	/// <returns>Истина в случае если все ячейки первого объекта больше или равны всех ячеек второго объекта</returns>
 	bool operator >= (const Triad& triad)
 	{
 		return this->_a >= triad._a && this->_b >= triad._b && this->_c >= triad._c;
 	}
 
+	/// <summary>
+	/// Оператор сравнения меньше или равно
+	/// </summary>
+	/// <param name="triad"></param>
+	/// <returns>Истина в случае если все ячейки первого объекта меньше или равны всех ячеек второго объекта</returns>
 	bool operator <= (const Triad& triad)
 	{
 		return this->_a <= triad._a && this->_b <= triad._b && this->_c <= triad._c;
 	}
 
+	/// <summary>
+	/// Возравщает значение первой ячейки
+	/// </summary>
+	/// <returns></returns>
 	int getA()
 	{
 		return _a;
 	}
 
+	/// <summary>
+	/// Возравщает значение второй ячейки
+	/// </summary>
+	/// <returns></returns>
 	int getB()
 	{
 		return _b;
 	}
 
+	/// <summary>
+	/// Возравщает значение третей ячейки
+	/// </summary>
+	/// <returns></returns>
 	int getC()
 	{
 		return _c;
 	}
 
+	/// <summary>
+	/// Выводит информацию на монитор
+	/// </summary>
 	void ShowInfo()
 	{
 		std::cout << "Triada: (" << _a << ", " << _b << ", " << _c << ")";
 	}
 };
 
+/// <summary>
+/// класс время
+/// </summary>
 class Time
 {
 private:
+	/// <summary>
+	/// Часы
+	/// </summary>
 	int _h;
+
+	/// <summary>
+	/// Минуты
+	/// </summary>
 	int _m;
+
+	/// <summary>
+	/// Секунды
+	/// </summary>
 	int _s;
 
 public:
+	/// <summary>
+	/// Конструктор по умолчанию 
+	/// </summary>
 	Time() : _h(0), _m(0), _s(0) {}
 
+	/// <summary>
+	/// Конструктор с параметрами
+	/// </summary>
+	/// <param name="h"></param>
+	/// <param name="m"></param>
+	/// <param name="s"></param>
 	Time(int h, int m, int s)
 	{
 		if (isHourse(h))
@@ -104,16 +196,45 @@ public:
 		}
 	}
 
+	/// <summary>
+	/// Оператор сравнении Логическое И. Сравнивает два объекта типа Time
+	/// </summary>
+	/// <param name="t"></param>
+	/// <returns>Возвращает истину в случае если все ячейки равны</returns>
 	bool operator==(const Time& t)
 	{
 		return this->_h == t._h && this->_m == t._m && this->_s == t._s;
 	}
 
+	/// <summary>
+	/// Оператор сравнении Логическое И. Сравнивает два объекта типа Time
+	/// </summary>
+	/// <param name="t"></param>
+	/// <returns>Возвращает истину в случае если хотя бы одна ячейка не равна другой</returns>
 	bool operator !=(const Time& t)
 	{
-		return this->_h != t._h || this->_m != t._m || this->_s != t._s;
+		if (this->_h != t._h)
+		{
+			return true;
+		}
+		else
+		{
+			if (this->_m != t._m)
+			{
+				return true;
+			}
+			else
+			{
+				return this->_s != t._s;
+			}
+		}
 	}
 
+	/// <summary>
+	/// Оператор сравнение больше 
+	/// </summary>
+	/// <param name="triad"></param>
+	/// <returns>Истина в случае если все ячейки первого объекта больше всех ячеек второго объекта</returns>
 	bool operator > (const Time& t)
 	{
 		if (this->_h > t._h)
@@ -141,6 +262,11 @@ public:
 		}
 	}
 
+	/// <summary>
+	/// Оператор сравнение меньше 
+	/// </summary>
+	/// <param name="triad"></param>
+	/// <returns>Истина в случае если все ячейки первого объекта меньше всех ячеек второго объекта</returns>
 	bool operator < (const Time& t)
 	{
 		if (this->_h < t._h)
@@ -168,6 +294,11 @@ public:
 		}
 	}
 
+	/// <summary>
+	/// Оператор сравнение меньше или равны 
+	/// </summary>
+	/// <param name="triad"></param>
+	/// <returns>Истина в случае если все ячейки первого объекта меньше или равны всех ячеек второго объекта</returns>
 	bool operator <= (const Time& t)
 	{
 		if (this->_h < t._h)
@@ -195,6 +326,11 @@ public:
 		}
 	}
 
+	/// <summary>
+	/// Оператор сравнение больше или равны 
+	/// </summary>
+	/// <param name="triad"></param>
+	/// <returns>Истина в случае если все ячейки первого объекта больше или равны всех ячеек второго объекта</returns>
 	bool operator >= (const Time& t)
 	{
 		if (this->_h < t._h)
@@ -222,20 +358,37 @@ public:
 		}
 	}
 
+	/// <summary>
+	/// Возвращает часы
+	/// </summary>
+	/// <returns></returns>
 	int getHours()
 	{
 		return _h;
 	}
+
+	/// <summary>
+	/// Возвращает минуты
+	/// </summary>
+	/// <returns></returns>
 	int getMinutes()
 	{
 		return _m;
 	}
 
+	/// <summary>
+	/// Возвращает секунды
+	/// </summary>
+	/// <returns></returns>
 	int getSeconds()
 	{
 		return _s;
 	}
 
+	/// <summary>
+	/// Выводит информацию о времени на монитор
+	/// </summary>
+	/// <returns></returns>
 	void ShowInfo()
 	{
 		std::cout << "Time: (";
@@ -248,22 +401,40 @@ public:
 	}
 
 private:
-
+	/// <summary>
+	/// Корректный вывод времени
+	/// </summary>
+	/// <param name="value"></param>
 	void printLessTime(int value)
 	{
 		std::cout << ((value < 9) ? "0" + value : std::to_string(value));
 	}
+
+	/// <summary>
+	/// Проверка на корректность часов
+	/// </summary>
+	/// <param name="h"></param>
+	/// <returns></returns>
 	bool isHourse(int h)
 	{
 		return h >= 0 && h <= 24;
 	}
 
+	/// <summary>
+	/// Проверка на корректность минут или секунд
+	/// </summary>
+	/// <param name="h"></param>
+	/// <returns></returns>
 	bool isMinutesOrSeconds(int ms)
 	{
 		return ms >= 0 && ms < 60;
 	}
 };
 
+/// <summary>
+/// Ввод пользователя 
+/// </summary>
+/// <returns>объект типа Triad</returns>
 Triad getTriadFromUser()
 {
 	int a;
@@ -279,6 +450,10 @@ Triad getTriadFromUser()
 	return Triad(a, b, c);
 }
 
+/// <summary>
+/// Ввод пользователя 
+/// </summary>
+/// <returns>объект типа Time</returns>
 Time getTimeFromUser()
 {
 	int a;
@@ -301,6 +476,11 @@ Time getTimeFromUser()
 	}
 }
 
+/// <summary>
+/// Вывод сравнений Triad
+/// </summary>
+/// <param name="tr1"></param>
+/// <param name="tr2"></param>
 void ShowСomparisoTriad(Triad tr1, Triad tr2)
 {
 	tr1.ShowInfo();
@@ -331,6 +511,11 @@ void ShowСomparisoTriad(Triad tr1, Triad tr2)
 	std::cout << " = " << (tr1 <= tr2) << "\n";
 }
 
+/// <summary>
+/// Вывод сравнений Time
+/// </summary>
+/// <param name="tr1"></param>
+/// <param name="tr2"></param>
 void ShowСomparisoTime(Time t1, Time t2)
 {
 	t1.ShowInfo();
@@ -361,6 +546,9 @@ void ShowСomparisoTime(Time t1, Time t2)
 	std::cout << " = " << (t1 <= t2) << "\n";
 }
 
+/// <summary>
+/// Вывод меню для работы с Triad
+/// </summary>
 void ShowMenuTriad()
 {
 	bool isExist = false;
@@ -446,6 +634,9 @@ void ShowMenuTriad()
 	}
 }
 
+/// <summary>
+/// Вывод меню для работы с Time
+/// </summary>
 void ShowMenuTime()
 {
 	bool isExist = false;
